@@ -36,6 +36,7 @@ CASES = [
 ]
 TABS = [("Запускавшиеся игры", "Jeux lancés"), ("Диаграмма активности", "Graphique d'activité"),
         ("Сессии", "Sessions")]
+SAVE_TABS = [("Установленные", "Installés"), ("Удалённые", "Supprimés"), ("Бекапы", "Sauvegardes")]
 EVENTS = [("Запуск игры", "Lancer le jeu"), ("Закрытие игры", "Fermeture du jeu"),
           ("Сворачивание игры", "Réduire le jeu"), ("Переключение на игру", "Basculement vers le jeu"),
           ("Все игроки", "Tous les joueurs")]
@@ -160,10 +161,10 @@ class UiStringEmulationTests(unittest.TestCase):
                 self.emulate(call, source, target)
 
     def test_activity_tab_bar_translates_all_three_titles(self):
-        for call in V.string_calls[7:]:
+        for call, tabs in zip(V.string_calls[7:], [TABS] * 3 + [SAVE_TABS] * 6, strict=True):
             with self.subTest(site=hex(call.addr)):
                 self.assertEqual(call.count, 3)
-                self.emulate(call, [s for s, _ in TABS], [t for _, t in TABS])
+                self.emulate(call, [s for s, _ in tabs], [t for _, t in tabs])
 
     def test_join_wraps_translate_the_joined_phrase(self):
         for addr in V.string_wraps:

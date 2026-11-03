@@ -163,6 +163,13 @@ V921 = Version(
         StringCall(0x3E78E4, 0x513410, 1, 3),
         StringCall(0x3E7934, 0x513410, 1, 3),
         StringCall(0x3E7954, 0x513410, 1, 3),
+        # save data tab bar: Установленные, Удалённые, Бекапы (issue #31)
+        StringCall(0x45AD28, 0x513410, 1, 3),
+        StringCall(0x45CB98, 0x513410, 1, 3),
+        StringCall(0x45CBB0, 0x513410, 1, 3),
+        StringCall(0x544CCC, 0x513410, 1, 3),
+        StringCall(0x545C48, 0x513410, 1, 3),
+        StringCall(0x546350, 0x513410, 1, 3),
     ),
     string_wraps=(
         0x3C9620,   # activity log: header "Все игроки", sort labels
