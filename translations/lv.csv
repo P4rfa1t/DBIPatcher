@@ -1464,3 +1464,4 @@ Android extensions: ,Android extensions:
 "X выбор, Y обратить выбор, A открыть, (-) 2ая панель, (+) меню, L3 имя","X atlasīt, Y apgriezt atlasi, A atvērt, (-) 2. panelis, (+) izvēlne, L3 nosaukums"
 \x1b[32;1mТайтл установлен\x1b[37;1m,\x1b[32;1mNosaukums instalēts\x1b[37;1m
 \x1b[32;1mТайтл установлен,\x1b[32;1mNosaukums instalēts
+Патчить версию в meta  : ,Labot versiju meta           :

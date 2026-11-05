@@ -1464,3 +1464,4 @@ Android extensions: ,Android extensions:
 "X выбор, Y обратить выбор, A открыть, (-) 2ая панель, (+) меню, L3 имя","X Auswahl, Y Auswahl umkehren, A öffnen, (-) 2. Panel, (+) Menü, L3 Name"
 \x1b[32;1mТайтл установлен\x1b[37;1m,\x1b[32;1mTitel installiert\x1b[37;1m
 \x1b[32;1mТайтл установлен,\x1b[32;1mTitel installiert
+Патчить версию в meta  : ,Version in meta patchen    :
