@@ -1462,3 +1462,5 @@ Android extensions: ,Android extensions:
 Переключение на игру,Beralih ke game
 Добавить в исключения SaltyNX,Tambahkan ke pengecualian SaltyNX
 "X выбор, Y обратить выбор, A открыть, (-) 2ая панель, (+) меню, L3 имя","X pilih, Y balik pilihan, A buka, (-) panel ke-2, (+) menu, L3 Nama"
+\x1b[32;1mТайтл установлен\x1b[37;1m,\x1b[32;1mTitle terpasang\x1b[37;1m
+\x1b[32;1mТайтл установлен,\x1b[32;1mTitle terpasang

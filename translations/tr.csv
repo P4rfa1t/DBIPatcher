@@ -1462,3 +1462,5 @@ Android extensions: ,Android extensions:
 Переключение на игру,Oyuna geçiş
 Добавить в исключения SaltyNX,SaltyNX hariç tutulanlarına ekle
 "X выбор, Y обратить выбор, A открыть, (-) 2ая панель, (+) меню, L3 имя","X seç, Y ters çevir seçimi, A aç, (-) 2. panel, (+) menü, L3 Ad"
+\x1b[32;1mТайтл установлен\x1b[37;1m,\x1b[32;1mBaşlık yüklendi\x1b[37;1m
+\x1b[32;1mТайтл установлен,\x1b[32;1mBaşlık yüklendi
