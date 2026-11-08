@@ -1465,3 +1465,16 @@ Android extensions: ,Android extensions:
 \x1b[32;1mТайтл установлен\x1b[37;1m,\x1b[32;1mBaşlık yüklendi\x1b[37;1m
 \x1b[32;1mТайтл установлен,\x1b[32;1mBaşlık yüklendi
 Патчить версию в meta  : ,Yama meta sürümü         :
+Патчи SaltyNX,SaltyNX yamaları
+Форсировать режим полета,Uçuş modunu zorla
+Игнорировать ответ от сервера,Sunucu yanıtını yoksay
+Считать аккаунт линкованным,Hesabı bağlı say
+Не отправлять запросы на сервер,Sunucuya istek gönderme
+Блокировать все сетевые действия,Tüm ağ etkinliğini engelle
+Не показывать диалоги с ошибками,Hata iletişim kutularını gösterme
+Убрать копирайт со скриншотов,Ekran görüntülerinden telif hakkını kaldır
+Блокировать отключение видеозаписи,Video kaydının devre dışı bırakılmasını engelle
+Блокировать отключение скриншотов,Ekran görüntüsünün devre dışı bırakılmasını engelle
+Не показывать диалог про перезагрузку,Yeniden başlatma iletişim kutusunu gösterme
+Не останавливать игру в фоне,Oyunu arka planda askıya alma
+Блокировать изменение частот CPU,CPU frekansı değişikliklerini engelle

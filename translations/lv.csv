@@ -1465,3 +1465,16 @@ Android extensions: ,Android extensions:
 \x1b[32;1mТайтл установлен\x1b[37;1m,\x1b[32;1mNosaukums instalēts\x1b[37;1m
 \x1b[32;1mТайтл установлен,\x1b[32;1mNosaukums instalēts
 Патчить версию в meta  : ,Labot versiju meta           :
+Патчи SaltyNX,SaltyNX ielāpi
+Форсировать режим полета,Piespiedu lidojuma režīms
+Игнорировать ответ от сервера,Ignorēt servera atbildi
+Считать аккаунт линкованным,Uzskatīt kontu par saistītu
+Не отправлять запросы на сервер,Nesūtīt pieprasījumus serverim
+Блокировать все сетевые действия,Bloķēt visas tīkla darbības
+Не показывать диалоги с ошибками,Nerādīt kļūdu dialoglodziņus
+Убрать копирайт со скриншотов,Noņemt autortiesības no ekrānuzņēmumiem
+Блокировать отключение видеозаписи,Bloķēt videoieraksta atspējošanu
+Блокировать отключение скриншотов,Bloķēt ekrānuzņēmumu atspējošanu
+Не показывать диалог про перезагрузку,Nerādīt pārstartēšanas dialoglodziņu
+Не останавливать игру в фоне,Neapturēt spēli fonā
+Блокировать изменение частот CPU,Bloķēt CPU frekvenču maiņu
