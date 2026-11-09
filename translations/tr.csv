@@ -1466,15 +1466,33 @@ Android extensions: ,Android extensions:
 \x1b[32;1mТайтл установлен,\x1b[32;1mBaşlık yüklendi
 Патчить версию в meta  : ,Yama meta sürümü         :
 Патчи SaltyNX,SaltyNX yamaları
-Форсировать режим полета,Uçuş modunu zorla
+Форсировать режим полёта,Uçuş modunu zorla
 Игнорировать ответ от сервера,Sunucu yanıtını yoksay
 Считать аккаунт линкованным,Hesabı bağlı say
 Не отправлять запросы на сервер,Sunucuya istek gönderme
 Блокировать все сетевые действия,Tüm ağ etkinliğini engelle
-Не показывать диалоги с ошибками,Hata iletişim kutularını gösterme
+Не показывать диалоги с ошибкой,Hata iletişim kutularını gösterme
 Убрать копирайт со скриншотов,Ekran görüntülerinden telif hakkını kaldır
 Блокировать отключение видеозаписи,Video kaydının devre dışı bırakılmasını engelle
 Блокировать отключение скриншотов,Ekran görüntüsünün devre dışı bırakılmasını engelle
-Не показывать диалог про перезагрузку,Yeniden başlatma iletişim kutusunu gösterme
+Не показывать диалог про верёвочку,Bileklik kayışı iletişim kutusunu gösterme
 Не останавливать игру в фоне,Oyunu arka planda askıya alma
-Блокировать изменение частот CPU,CPU frekansı değişikliklerini engelle
+Блокировать изменение частот APU,CPU frekansı değişikliklerini engelle
+Signature       : ,İmza            : 
+Issuer          : ,Veren           : 
+Format version  : ,Biçim sürümü    : 
+Type            : ,Tür             : 
+Version         : ,Sürüm           : 
+License         : ,Lisans          : 
+Key generation  : ,Anahtar nesli   : 
+Properties      : ,Özellikler      : 
+Ticket ID       : ,Bilet kimliği   : 
+Device ID       : ,Cihaz kimliği   : 
+RightsId        : ,RightsId        : 
+Enc. title key  : ,Şifr. baş. an.  : 
+Dec. title key  : ,Deşif. baş. an. : 
+Space  : ,Alan   : 
+Type   : ,Tür    : 
+User   : ,Kullan.: 
+Uid    : ,Uid    : 
+Index  : ,Dizin  : 

@@ -76,12 +76,12 @@ class TemperatureAliasesAndSyncTests(unittest.TestCase):
 
         self.assertEqual(
             len(originals),
-            1479,
+            1497,
             f"Expected 1,466 original keys, found {len(originals)}",
         )
         self.assertEqual(
             len(set(originals)),
-            1479,
+            1497,
             f"Expected 1,466 unique original keys, found {len(set(originals))}",
         )
 
@@ -207,7 +207,7 @@ class TemperatureAliasesAndSyncTests(unittest.TestCase):
             if val is not None and str(val).strip():
                 wb_tokenized_keys.add(str(val))
 
-        self.assertEqual(len(wb_tokenized_keys), 1479)
+        self.assertEqual(len(wb_tokenized_keys), 1497)
 
         for lc in self.languages:
             if lc == "ru":

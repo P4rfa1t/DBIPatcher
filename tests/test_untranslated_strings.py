@@ -20,18 +20,41 @@ LANGS = json.loads((ROOT / "data" / "languages.json").read_text(encoding="utf-8"
 
 SALTYNX_KEYS = (
     "Патчи SaltyNX",
-    "Форсировать режим полета",
+    "Форсировать режим полёта",
     "Игнорировать ответ от сервера",
     "Считать аккаунт линкованным",
     "Не отправлять запросы на сервер",
     "Блокировать все сетевые действия",
-    "Не показывать диалоги с ошибками",
+    "Не показывать диалоги с ошибкой",
     "Убрать копирайт со скриншотов",
     "Блокировать отключение видеозаписи",
     "Блокировать отключение скриншотов",
-    "Не показывать диалог про перезагрузку",
+    "Не показывать диалог про верёвочку",
     "Не останавливать игру в фоне",
-    "Блокировать изменение частот CPU",
+    "Блокировать изменение частот APU",
+)
+
+# DBI 920+ save-data and ticket information panels: plain-ASCII labels that the
+# runtime used to skip (see the ASCII gate in vendor/dbi_translate/runtime.py).
+PANEL_LABELS = (
+    "Signature       : ",
+    "Issuer          : ",
+    "Format version  : ",
+    "Type            : ",
+    "Version         : ",
+    "License         : ",
+    "Key generation  : ",
+    "Properties      : ",
+    "Ticket ID       : ",
+    "Device ID       : ",
+    "RightsId        : ",
+    "Enc. title key  : ",
+    "Dec. title key  : ",
+    "Space  : ",
+    "Type   : ",
+    "User   : ",
+    "Uid    : ",
+    "Index  : ",
 )
 
 ASCII_IDENTICAL_OK = frozenset({"Х:{}, Т:{}, РЦ:{}", "МБ/сек)", "ru", "original"})
@@ -70,6 +93,32 @@ class SaltyNXPatchMenuTests(unittest.TestCase):
                     any("一" <= c <= "鿿" for c in value),
                     f"{lang}: {key!r} -> {value!r} has no Han characters",
                 )
+
+    def test_panel_labels_present_in_every_language(self) -> None:
+        missing = []
+        for lang in LANGS:
+            table = load(lang)
+            for key in PANEL_LABELS:
+                if not table.get(key, "").strip():
+                    missing.append(f"{lang}: {key!r}")
+        self.assertEqual(missing, [], f"missing panel labels: {missing[:10]}")
+
+    def test_panel_labels_keep_the_colon_column(self) -> None:
+        """DBI pads these labels to a fixed cell column; a translation that shifts the colon
+        staggers the value column. Only zhcn/zhtw are held to it: the CJK words are short
+        enough to pad, while several Latin/Cyrillic words cannot fit and are left to their
+        own translators."""
+        bad = []
+        for lang in ("zhcn", "zhtw"):
+            table = load(lang)
+            for key in PANEL_LABELS:
+                value = table.get(key, "")
+                if not value or ":" not in value:
+                    continue
+                source_col, value_col = key.index(":"), value.index(":")
+                if value_col > source_col:
+                    bad.append(f"{lang}: {key!r} -> {value!r} (colon {value_col} > {source_col})")
+        self.assertEqual(bad, [], f"colon overflowed: {bad[:10]}")
 
 
 class UntranslatedFallbackTests(unittest.TestCase):

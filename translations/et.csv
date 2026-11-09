@@ -1466,15 +1466,33 @@ Android extensions: ,Android extensions:
 \x1b[32;1mТайтл установлен,\x1b[32;1mPealkiri paigaldatud
 Патчить версию в meta  : ,Parandage versioon metas    :
 Патчи SaltyNX,SaltyNX plaastrid
-Форсировать режим полета,Sunni lennurežiimi
+Форсировать режим полёта,Sunni lennurežiimi
 Игнорировать ответ от сервера,Eira serveri vastust
 Считать аккаунт линкованным,Käsitle kontot seotuna
 Не отправлять запросы на сервер,Ära saada serverile päringuid
 Блокировать все сетевые действия,Blokeeri kogu võrgutegevus
-Не показывать диалоги с ошибками,Ära näita veateateid
+Не показывать диалоги с ошибкой,Ära näita veateateid
 Убрать копирайт со скриншотов,Eemalda ekraanipiltidelt autoriõigus
 Блокировать отключение видеозаписи,Blokeeri videosalvestuse keelamine
 Блокировать отключение скриншотов,Blokeeri ekraanipiltide keelamine
-Не показывать диалог про перезагрузку,Ära näita taaskäivituse dialoogi
+Не показывать диалог про верёвочку,Ära näita kinnitusrihma dialoogi
 Не останавливать игру в фоне,Ära peata mängu taustal
-Блокировать изменение частот CPU,Blokeeri protsessori sageduse muutmine
+Блокировать изменение частот APU,Blokeeri protsessori sageduse muutmine
+Signature       : ,Allkiri         : 
+Issuer          : ,Väljaandja      : 
+Format version  : ,Vormingu versioon: 
+Type            : ,Tüüp            : 
+Version         : ,Versioon        : 
+License         : ,Litsents        : 
+Key generation  : ,Võtme põlvkond  : 
+Properties      : ,Omadused        : 
+Ticket ID       : ,Pileti ID       : 
+Device ID       : ,Seadme ID       : 
+RightsId        : ,RightsId        : 
+Enc. title key  : ,Krüpt. pealk. v.: 
+Dec. title key  : ,Dekrüpt. pealkirja võti: 
+Space  : ,Ruum   : 
+Type   : ,Tüüp   : 
+User   : ,Kasut. : 
+Uid    : ,Uid    : 
+Index  : ,Indeks : 

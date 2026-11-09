@@ -14,6 +14,10 @@ STATE_READY = STATE_READY_HI << 48  # full 64-bit: leftover bss bytes can't matc
 PATH_STR = b"sdmc:/switch/DBI/translation.bin"   # 32 bytes (reader strips "sdmc:")
 assert len(PATH_STR) == 32
 
+# Longest key the ASCII gate probes. Every label DBI 920+ draws in the save-data and ticket
+# panels is shorter than this, and probing more bytes only costs prefix-match precision.
+ASCII_PROBE = 0x20
+
 
 def translate_string(v: Version, sl_addr):
     """Translate a std::string in place through DBI's own append, retaining ownership.
@@ -305,7 +309,7 @@ def ctor_exact(v: Version, sl_addr, vl_addr):
     """(X0=dest, X1=data, X2=len) -> same registers, with X1/X2 replaced by the translation on
     an exact hit. Called from the entry stub of a std::string(const char*, size_t) copy, so
     only X0-X2 are live. Exact match only (no prefix/suffix rebuild): these constructors also
-    build paths and file names. Skips strings longer than 0x100 or without a byte >= 0x80.
+    build paths and file names. Skips strings longer than 0x100.
     Text that already is a translation is left alone. When the data continues past len and the
     whole NUL-terminated string is a translation, the whole translation is copied: DBI copies
     words with their Russian byte length (std::string w(tmp.data(), 14)) after translating tmp,
@@ -313,10 +317,29 @@ def ctor_exact(v: Version, sl_addr, vl_addr):
     the Russian length (EN "LFS mode : -" for the 14-byte "LFS мод.: -") arrives with its NUL
     and stale stack bytes inside len: copied whole, DBI draws a NUL glyph or throws
     "Invalid UTF-8" (issue #29). When the bytes before a NUL inside len are a translation,
-    the copy is cut at that NUL."""
+    the copy is cut at that NUL.
+
+    ASCII strings are looked up too. DBI 920+ draws the save-data and ticket information
+    panels from plain-ASCII labels that live in .rodata and reach the screen through this
+    constructor (Signature / Issuer / Format version / Ticket ID / ...), so gating them out
+    left those two screens untranslated in every language. The lookup is exact and happens
+    before the byte scan, so a path or file name that is not a key is returned unchanged;
+    the scan below still decides whether the slower prefix/NUL handling applies."""
     return [
         ("I", "cbz x2, {ce_ret}"),
         ("I", "cmp x2, #0x100"), ("I", "b.hi {ce_ret}"),
+        # Exact lookup first, for Cyrillic and ASCII alike. An ASCII string with no key is
+        # not a translation target, so there is nothing for the scan below to do.
+        ("I", "stp x29, x30, [sp, #-0x30]!"),
+        ("I", "stp x0, x1, [sp, #0x10]"), ("I", "str x2, [sp, #0x20]"),
+        ("I", "mov x0, x1"), ("I", "mov x1, x2"),
+        ("I", f"bl {sl_addr:#x}"),                  # (x0=key, x1=len) -> (x0=tr|0, x1=trlen)
+        ("I", "cbz x0, {ce_probe}"),
+        ("I", "mov x2, x1"), ("I", "mov x1, x0"), ("I", "ldr x0, [sp, #0x10]"),
+        ("I", "ldp x29, x30, [sp], #0x30"), ("I", "ret"),
+        ("L", "ce_probe"),
+        ("I", "ldp x0, x1, [sp, #0x10]"), ("I", "ldr x2, [sp, #0x20]"),
+        ("I", "ldp x29, x30, [sp], #0x30"),
         ("I", "mov x9, #0"),
         ("L", "ce_nscan"),                          # NUL inside len?
         ("I", "ldrb w10, [x1, x9]"), ("I", "cbz w10, {ce_nul}"),
@@ -418,8 +441,14 @@ def make_pfxsfx(v: Version, sl_addr, vl_addr):
        survives, a hit re-prepends the skipped bytes.
     1. exact lookup.
     0b. text that already is a translation is returned unchanged (no second pass).
-    2. gate: bail to the original unless len<=256 and a byte is >=0x80 (Cyrillic), keeping
-       ASCII byte-progress off the O(len) scan.
+    2. gate: bail to the original unless len<=256 and the text is worth a scan. A Cyrillic
+       line qualifies as before. An ASCII line qualifies only when it is a prefix of some
+       key, which is what DBI 920+ draws its save-data and ticket panels with
+       ("Issuer          : Root-CA..."): .rodata holds "Issuer          : " and the value is
+       appended before the line reaches this hook, so the all-ASCII body used to fall out
+       here and those two screens stayed English (and Russian) in every language. The check
+       runs one shared_lookup on the first KEYSCAN bytes, so a path or file name is still
+       rejected in O(1) table probes, and byte-progress lines stay off the O(len) scan.
     3. longest-prefix + longest-suffix rebuild in SCRATCH (lead bytes prepended). A prefix or
        suffix hit counts only on a word boundary, so the key "Да" cannot match "Дампити"."""
     return [
@@ -446,9 +475,19 @@ def make_pfxsfx(v: Version, sl_addr, vl_addr):
         ("I", "cmp x20, #2"), ("I", "b.lt {miss}"),
         ("I", "mov x11, #0"),
         ("L", "ds"),
-        ("I", "cmp x11, x20"), ("I", "b.ge {miss}"),
+        ("I", "cmp x11, x20"), ("I", "b.ge {agate}"),
         ("I", "ldrb w13, [x19, x11]"), ("I", "cmp w13, #0x80"), ("I", "b.hs {dgo}"),
         ("I", "add x11, x11, #1"), ("I", "b {ds}"),
+        # (2b) all-ASCII line. A key may be shorter than ASCII_PROBE and the value is
+        # appended after it, so probe heads downward one byte at a time from min(len, 32);
+        # the first exact hit means this line starts with a key. A handful of O(1) probes.
+        ("L", "agate"),
+        ("I", f"mov x21, #{ASCII_PROBE:#x}"), ("I", "cmp x21, x20"), ("I", "csel x21, x21, x20, lo"),
+        ("L", "aprobe"),
+        ("I", "cmp x21, #8"), ("I", "b.lo {miss}"),
+        ("I", "mov x0, x19"), ("I", "mov x1, x21"), ("I", f"bl {sl_addr:#x}"),
+        ("I", "cbnz x0, {dgo}"),
+        ("I", "sub x21, x21, #1"), ("I", "b {aprobe}"),
         ("L", "dgo"),
         # (3) longest prefix + longest suffix
         ("I", "mov x21, #0"), ("I", "mov x24, #0"), ("I", "mov x27, x20"),

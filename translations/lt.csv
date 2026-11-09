@@ -1466,15 +1466,33 @@ Android extensions: ,Android extensions:
 \x1b[32;1mТайтл установлен,\x1b[32;1mPavadinimas įdiegtas
 Патчить версию в meta  : ,Pataisyti versiją meta          :
 Патчи SaltyNX,SaltyNX pataisos
-Форсировать режим полета,Priverstinis skrydžio režimas
+Форсировать режим полёта,Priverstinis skrydžio režimas
 Игнорировать ответ от сервера,Nepaisyti serverio atsakymo
 Считать аккаунт линкованным,Laikyti paskyrą susietą
 Не отправлять запросы на сервер,Nesiųsti užklausų serveriui
 Блокировать все сетевые действия,Blokuoti visą tinklo veiklą
-Не показывать диалоги с ошибками,Nerodyti klaidų dialogų
+Не показывать диалоги с ошибкой,Nerodyti klaidų dialogų
 Убрать копирайт со скриншотов,Pašalinti autorių teises iš ekrano kopijų
 Блокировать отключение видеозаписи,Blokuoti vaizdo įrašymo išjungimą
 Блокировать отключение скриншотов,Blokuoti ekrano kopijų išjungimą
-Не показывать диалог про перезагрузку,Nerodyti perkrovimo dialogo
+Не показывать диалог про верёвочку,Nerodyti riešo dirželio dialogo
 Не останавливать игру в фоне,Nesustabdyti žaidimo fone
-Блокировать изменение частот CPU,Blokuoti CPU dažnių keitimą
+Блокировать изменение частот APU,Blokuoti CPU dažnių keitimą
+Signature       : ,Parašas         : 
+Issuer          : ,Išdavėjas       : 
+Format version  : ,Formato versija : 
+Type            : ,Tipas           : 
+Version         : ,Versija         : 
+License         : ,Licencija       : 
+Key generation  : ,Raktų karta     : 
+Properties      : ,Savybės         : 
+Ticket ID       : ,Bilieto ID      : 
+Device ID       : ,Įrenginio ID    : 
+RightsId        : ,RightsId        : 
+Enc. title key  : ,Šifr. pavad. r. : 
+Dec. title key  : ,Dešifr. pav. r. : 
+Space  : ,Vieta  : 
+Type   : ,Tipas  : 
+User   : ,Vartot.: 
+Uid    : ,Uid    : 
+Index  : ,Indeks.: 

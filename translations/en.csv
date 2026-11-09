@@ -1466,15 +1466,33 @@ Android extensions: ,Android extensions:
 \x1b[32;1mТайтл установлен,\x1b[32;1mTitle installed
 Патчить версию в meta  : ,Patch version in meta   :
 Патчи SaltyNX,SaltyNX patches
-Форсировать режим полета,Force flight mode
+Форсировать режим полёта,Force flight mode
 Игнорировать ответ от сервера,Ignore server response
 Считать аккаунт линкованным,Treat account as linked
 Не отправлять запросы на сервер,Do not send requests to the server
 Блокировать все сетевые действия,Block all network activity
-Не показывать диалоги с ошибками,Do not show error dialogs
+Не показывать диалоги с ошибкой,Do not show error dialogs
 Убрать копирайт со скриншотов,Remove copyright from screenshots
 Блокировать отключение видеозаписи,Block disabling of video recording
 Блокировать отключение скриншотов,Block disabling of screenshots
-Не показывать диалог про перезагрузку,Do not show reboot dialog
+Не показывать диалог про верёвочку,Do not show the wrist strap dialog
 Не останавливать игру в фоне,Do not suspend the game in the background
-Блокировать изменение частот CPU,Block CPU frequency changes
+Блокировать изменение частот APU,Block CPU frequency changes
+Signature       : ,Signature       : 
+Issuer          : ,Issuer          : 
+Format version  : ,Format version  : 
+Type            : ,Type            : 
+Version         : ,Version         : 
+License         : ,License         : 
+Key generation  : ,Key generation  : 
+Properties      : ,Properties      : 
+Ticket ID       : ,Ticket ID       : 
+Device ID       : ,Device ID       : 
+RightsId        : ,RightsId        : 
+Enc. title key  : ,Enc. title key  : 
+Dec. title key  : ,Dec. title key  : 
+Space  : ,Space  : 
+Type   : ,Type   : 
+User   : ,User   : 
+Uid    : ,Uid    : 
+Index  : ,Index  : 

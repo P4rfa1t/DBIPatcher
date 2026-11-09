@@ -46,8 +46,13 @@ def model_pfxsfx(K, V, b):
         return b
     if s in K:
         return K[s]
-    if len(s) > 0x100 or len(s) < 2 or not any(c >= 0x80 for c in s):
+    if len(s) > 0x100 or len(s) < 2:
         return b
+    if not any(c >= 0x80 for c in s):
+        # All-ASCII line: DBI 920+ paints its label panels as "Issuer          : <value>",
+        # so gate on "does this line start with a key?" instead of rejecting ASCII outright.
+        if not any(s[:n] in K for n in range(min(0x20, len(s)), 7, -1)):
+            return b
     p = next((n for n in range(len(s), 1, -1) if s[:n] in K and
               (not letter(s[n - 1]) or not letter(s[n]))), 0)
     q = next((n for n in range(len(s), 1, -1) if s[len(s) - n:] in K and
