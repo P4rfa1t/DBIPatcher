@@ -1479,7 +1479,6 @@ Android extensions: ,Android extensions:
 Убрать копирайт со скриншотов,Remove copyright from screenshots
 Блокировать отключение видеозаписи,Block disabling of video recording
 Блокировать отключение скриншотов,Block disabling of screenshots
-Не показывать диалог про верёвочку,Do not show the wrist strap dialog
-Не показывать диалог про верёвочку,Do not show the wrist strap dialog
 Не останавливать игру в фоне,Do not suspend the game in the background
 Блокировать изменение частот APU,Block APU frequency changes
+Не показывать диалог про перезагрузку,Do not show reboot dialog
