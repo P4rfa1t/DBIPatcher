@@ -1465,3 +1465,21 @@ Android extensions: ,Android extensions:
 \x1b[32;1mТайтл установлен\x1b[37;1m,\x1b[32;1mTitel installiert\x1b[37;1m
 \x1b[32;1mТайтл установлен,\x1b[32;1mTitel installiert
 Патчить версию в meta  : ,Version in meta patchen    :
+Патчи SaltyNX,SaltyNX-Patches
+Форсировать режим полёта,Flugmodus erzwingen
+Форсировать режим полёта,Flugmodus erzwingen
+Игнорировать ответ от сервера,Serverantwort ignorieren
+Считать аккаунт линкованным,Konto als verknüpft betrachten
+Не отправлять запросы на сервер,Keine Anfragen an den Server senden
+Блокировать все сетевые действия,Alle Netzwerkaktionen blockieren
+Блокировать все сетевые действия,Alle Netzwerkaktionen blockieren
+Не показывать диалоги с ошибкой,Fehlerdialoge nicht anzeigen
+Не показывать диалоги с ошибкой,Fehlerdialoge nicht anzeigen
+Убрать копирайт со скриншотов,Copyright von Screenshots entfernen
+Убрать копирайт со скриншотов,Copyright von Screenshots entfernen
+Блокировать отключение видеозаписи,Videoaufnahme-Deaktivierung blockieren
+Блокировать отключение скриншотов,Screenshot-Deaktivierung blockieren
+Не показывать диалог про верёвочку,Handschlaufen-Dialog nicht anzeigen
+Не показывать диалог про верёвочку,Handschlaufen-Dialog nicht anzeigen
+Не останавливать игру в фоне,Spiel im Hintergrund nicht anhalten
+Блокировать изменение частот APU,Änderung der APU-Frequenzen blockieren
